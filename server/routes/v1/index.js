@@ -1,10 +1,10 @@
-const express=require("express");
-const router=express.Router();
+const express = require("express");
+const router = express.Router();
 const multer = require('multer');
-const { uploadCreditReport } = require("../../controllers/creditReportController");
+const { uploadCreditReport, getAllCreditReport, getSingleCreditReport } = require("../../controllers/creditReportController");
 
-router.get('/test',function(req,res){
-    return res.json({"test":true});
+router.get('/test', function (req, res) {
+    return res.json({ "test": true });
 });
 
 // upload routes
@@ -23,5 +23,9 @@ const upload = multer({
 
 // upload route
 router.post('/upload/xml', upload.single('file'), uploadCreditReport);
+
+// data retrival routes
+router.get('/report', getAllCreditReport);
+router.get('/report/:id', getSingleCreditReport);
 
 module.exports = router;
