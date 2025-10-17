@@ -94,7 +94,7 @@ function UploadPage() {
       return;
     }
     if (selectedFile.size > MAX_FILE_SIZE_BYTES) {
-      setValidationError('File is too large. Maximum allowed size is 5 MB.');
+      setValidationError('File is too large. Maximum allowed size is 2 MB.');
       setFile(null);
       return;
     }
@@ -139,6 +139,7 @@ function UploadPage() {
           <form onSubmit={handleUpload}>
             {/* Drag and Drop Area */}
             <div
+              data-testid="upload-dropzone"
               onDragOver={handleDragOver}
               onDragLeave={handleDragLeave}
               onDrop={handleDrop}
@@ -160,6 +161,7 @@ function UploadPage() {
               }`}
             >
               <input
+                data-testid="upload-page-file-input"
                 type="file"
                 accept=".xml"
                 onChange={handleFileChange}
@@ -237,7 +239,7 @@ function UploadPage() {
             {validationError && (
               <div className="mt-4 p-4 rounded-lg bg-red-950/40 border border-red-900 text-red-300 flex items-start gap-3">
                 <AlertCircle className="w-5 h-5 mt-0.5 flex-shrink-0 text-red-400" />
-                <p className="text-sm font-medium">{validationError}</p>
+                <p data-testid="validation-error" className="text-sm font-medium">{validationError}</p>
               </div>
             )}
 
