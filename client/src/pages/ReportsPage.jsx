@@ -10,7 +10,7 @@ function ReportsPage() {
 
   const apiUrl = import.meta.env.VITE_API_URL;
   useEffect(() => {
-    fetch(`${apiUrl}/report`)
+    fetch(`${apiUrl}/reports`)
       .then(res => res.json())
       .then(data => {
         setReports(data);

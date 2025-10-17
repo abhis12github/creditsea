@@ -22,10 +22,10 @@ const upload = multer({
 });
 
 // upload route
-router.post('/upload/xml', upload.single('file'), uploadCreditReport);
+router.post('/reports', upload.single('file'), uploadCreditReport);
 
 // data retrival routes
-router.get('/report', getAllCreditReport);
-router.get('/report/:id', getSingleCreditReport);
+router.get('/reports', getAllCreditReport);
+router.get('/reports/:id', getSingleCreditReport);
 
 module.exports = router;

@@ -28,7 +28,7 @@ function UploadPage() {
     formData.append('file', file);
 
     try {
-      const res = await fetch(`${apiUrl}/upload/xml`, {
+      const res = await fetch(`${apiUrl}/reports`, {
         method: 'POST',
         body: formData,
       });
