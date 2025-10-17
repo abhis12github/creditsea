@@ -55,7 +55,7 @@ async function parseCreditReport(xmlBufferOrString) {
             },
             creditAccounts,
         };
-    } catch (error) {
+    } catch (err) {
         throw new Error(`Failed to parse XML: ${err.message}`);
     }
 };
